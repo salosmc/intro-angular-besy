@@ -1,0 +1,49 @@
+<!--interpolation-->
+<p>{{title}}</p>
+
+<!--property binding
+<input [attr.placeholder]="userPlaceholder"> 
+-->
+<!--way binding , hacia falta importar Forms Module en AppModule
+<input [(ngModel)]="username">
+-->
+
+<input [(ngModel)]="username" [attr.placeholder]="userPlaceholder"> 
+
+
+<!--Event Binding-->
+<button (click)="onSubmit()">Entrar</button>
+
+<!--Directivas Estructurales-->
+<div class="form-error" *ngIf="name.error; else see_more">Name tiene un error</div>
+<ng-template #see_more>
+    <p>Name no tiene un error</p>
+</ng-template>
+
+
+<span *ngIf="showExtendedFeatures; else see_more2">
+    <li *ngFor="let feature of extendedFeatures; let index = index;"
+        class="list-group-item">{{index+1+" - "+feature}}</li>
+    <a class="text-info" href="#" 
+        (click)="showExtendedFeatures = !showExtendedFeatures">
+        Ver menos
+    </a>
+</span>
+<ng-template #see_more2>
+    <a class="text-info" href="#" (click)="showExtendedFeatures = !showExtendedFeatures"> Ver más</a>
+</ng-template>
+
+<!--Directivas de atributo built-in-->
+<!--Agrega, remueve clases css. Si work link es '' la clase es hidden. si no, no. Elimina la clase.-->
+
+<div id="workLink" [ngClass]="{'hidden':work.link==''}" >
+    <a [href]="work.link" target="_blank">Visita el sitio</a>
+</div>
+
+<button [class.disabled]=" email=='' || password == '' "
+    class = "btn btn-lg btn-primary btn-block"
+    type="submit" > Ingresar</button>
+
+<div [ngStyle]="currentStyles" (click)="canSave =! canSave" >
+    This div is initially italic, normal weight, an extra large[24px];
+</div>
