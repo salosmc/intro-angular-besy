@@ -6,13 +6,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginWelcomeComponent } from './login-welcome/login-welcome.component';
 import { LoginPanelComponent } from './login-panel/login-panel.component';
+import { HeaderComponent } from './header/header.component';
+import { CardComponent } from './card/card.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginWelcomeComponent,
-    LoginPanelComponent
+    LoginPanelComponent,
+    HeaderComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
